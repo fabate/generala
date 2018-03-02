@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
 import '../App.css';
+import Table from './table/Table.js'
 import Turn  from './Turn';
-import Table  from './Table';
-import Score  from './Score';
-import Move  from './Move';
-import Result  from './Result';
+
+//import Score  from './Score';
+//import Result  from './Result';
 
 
 
@@ -14,7 +14,7 @@ import Result  from './Result';
 class App extends Component {
 
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             p1:{
                 "1":false,
@@ -56,10 +56,7 @@ class App extends Component {
         <p className="App-intro">
             <div>
                 <Table {...this.props} />
-                <Turn {...this.props} />
-                <Score {...this.props} />
-                <Move {...this.props} />
-                <Result {...this.props} />
+                <Turn {...this.props } />
             </div>
         </p>
       </div>
