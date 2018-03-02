@@ -56,7 +56,7 @@ class App extends Component {
         <p className="App-intro">
             <div>
                 <Table {...this.props} />
-                <Turn {...this.props} />
+                <Turn {...this.props } />
             </div>
         </p>
       </div>
