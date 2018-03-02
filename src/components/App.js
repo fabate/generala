@@ -4,9 +4,8 @@ import '../App.css';
 import Table from './table/Table.js'
 import Turn  from './Turn';
 
-import Score  from './Score';
-import Move  from './Move';
-import Result  from './Result';
+//import Score  from './Score';
+//import Result  from './Result';
 
 
 
@@ -58,9 +57,6 @@ class App extends Component {
             <div>
                 <Table {...this.props} />
                 <Turn {...this.props} />
-                <Score {...this.props} />
-                <Move {...this.props} />
-                <Result {...this.props} />
             </div>
         </p>
       </div>
