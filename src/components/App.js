@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
 import '../App.css';
+import Table from './table/Table.js'
 
 class App extends Component {
 
     constructor(props) {
+        super(props)
         this.state = {
             p1:{
                 "1":false,
@@ -46,10 +48,6 @@ class App extends Component {
         <p className="App-intro">
             <div>
                 <Table {...this.props} />
-                <Turn {...this.props} />
-                <Score {...this.props} />
-                <Move {...this.props} />
-                <Result {...this.props} />
             </div>
         </p>
       </div>
