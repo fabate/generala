@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
 import '../App.css';
+import Turn  from './Turn';
+import Table  from './Table';
+import Score  from './Score';
+import Move  from './Move';
+import Result  from './Result';
+
+
+
+
 
 class App extends Component {
 
     constructor(props) {
+        super(props);
         this.state = {
             p1:{
                 "1":false,
