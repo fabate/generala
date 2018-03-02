@@ -2,6 +2,15 @@ import React, { Component } from 'react';
 import logo from '../logo.svg';
 import '../App.css';
 import Table from './table/Table.js'
+import Turn  from './Turn';
+
+import Score  from './Score';
+import Move  from './Move';
+import Result  from './Result';
+
+
+
+
 
 class App extends Component {
 
@@ -48,6 +57,10 @@ class App extends Component {
         <p className="App-intro">
             <div>
                 <Table {...this.props} />
+                <Turn {...this.props} />
+                <Score {...this.props} />
+                <Move {...this.props} />
+                <Result {...this.props} />
             </div>
         </p>
       </div>
