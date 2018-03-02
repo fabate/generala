@@ -36,7 +36,7 @@ const generateDice = () => {
     return Math.floor(Math.random() * 6.99);
 }
 
-const possiblePlayerPlays =  (dices) => {
+export const possiblePlayerPlays =  (dices) => {
     return {
         1: countNumber(dices, 1),
         2: countNumber(dices, 2),
