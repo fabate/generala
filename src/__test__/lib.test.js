@@ -1,4 +1,5 @@
-import {turnsPlayed, currentTurn, gamePoints} from "../lib";
+import {turnsPlayed, currentTurn, gamePoints, gameIsOver, playerHasFinished,
+        playerPoints, generateDices, generateDice} from "../lib";
 
 describe("currentTurn()", () => {
 
@@ -89,4 +90,62 @@ describe("gamePoints()", () => {
 
 });
 
+describe("gameIsOver()", () => {
+
+    it("Should detect game Is Over ", () => {
+        expect(gameIsOver({1:1},{1:3})).toEqual(true);
+    });
+
+    it("Should detect game Is Not Over ", () => {
+        expect(gameIsOver({1:1},{1:false})).toEqual(false);
+    });
+
+    it("Should detect game Is Not Over II", () => {
+        expect(gameIsOver({1:false},{1:false})).toEqual(false);
+    });
+
+});
+
+
+describe("playerHasFinished()", () => {
+
+    it("Should detect player finished ", () => {
+        expect(playerHasFinished({1:1})).toEqual(true);
+    });
+
+    it("Should detect player not finished ", () => {
+        expect(playerHasFinished({1:false})).toEqual(false);
+    });
+    
+    it("Should detect player not finished II", () => {
+        expect(playerHasFinished({1:false, 2:4, 3: 9})).toEqual(false);
+    });
+});
+
+
+describe("playerPoints()", () => {
+
+    it("Should calculate player points I", () => {
+        expect(playerPoints({1:3})).toEqual(3);
+    });
+
+    it("Should calculate player points II", () => {
+        expect(playerPoints({1:3, 2: 5, 3: false})).toEqual(13);
+    });
+
+    it("Should calculate player points I", () => {
+        expect(playerPoints({1:3, 5:5 , 'E': 20, 'G':50})).toEqual(98);
+    });
+
+});
+
+
+describe("generateDices()", () => {
+
+    it("Should generate dices", () => {
+        expect(Array.isArray(generateDices())).toBe(true);
+        expect(generateDices().length).toBe(5);
+    });
+
+});
 
