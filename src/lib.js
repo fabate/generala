@@ -1,5 +1,5 @@
 const currentTurn = (p1, p2) => {
-    return turnsPlayed(p1) >= turnsPlayed(p2) ? p2 : p1;
+    return turnsPlayed(p1) >= turnsPlayed(p2) ? 1 : -1;
 }
 
 const turnsPlayed = (p) => {
@@ -28,7 +28,7 @@ const playerPoints = (p) => {
 }
 
 const generateDices = () => {
-    return [generarDado(), generarDado(), generarDado(), generarDado(), generarDado(), generarDado()];
+    return [generateDice(), generateDice(), generateDice(), generateDice(), generateDice(), generateDice()];
 }
 
 const generateDice = () => {
