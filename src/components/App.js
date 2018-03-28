@@ -5,6 +5,7 @@ import Table from './table/Table.js';
 import Turn  from './Turn';
 import {currentTurn,generateDices} from '../lib.js';
 import PlaySelector  from './PlaySelector.js';
+import Score  from './Score';
 //import Result  from './Result';
 
 class App extends Component {
@@ -61,6 +62,7 @@ class App extends Component {
                 <Table {...this.props} rollDices={this.rollDices}/>
                 <Turn {...this.props } currentTurn={currentTurn(this.state.p1,this.state.p2)}/>
                 {this.state.dices.length === 5 && <PlaySelector {...this.props} dices={this.state.dices} />}
+                <Score p1={this.state.p1} p2={this.state.p2} />
             </div>
         </p>
       </div>
