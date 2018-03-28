@@ -1,5 +1,5 @@
 export const currentTurn = (p1, p2) => {
-    return turnsPlayed(p1) >= turnsPlayed(p2) ? 1 : -1;
+    return turnsPlayed(p1) > turnsPlayed(p2) ? 2 : 1;
 }
 
 export const turnsPlayed = (p) => {
