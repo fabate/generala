@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Cube from "../cube/Cube.js"
 import Dice from "../dice/Dice.js"
+import {generateDices} from "../../lib.js"
 
 class Table extends React.Component {
 
