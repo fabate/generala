@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {possiblePlayerPlays} from '../lib';
 
 class PlaySelector extends Component {
-    consturctor(props){
+    constructor(props){
         super(props);
         this.possiblePlayerPlays = possiblePlayerPlays(this.props.dices);
     }
@@ -23,3 +23,5 @@ class PlaySelector extends Component {
         );
     }
 }
+
+export default PlaySelector;

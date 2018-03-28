@@ -7,19 +7,13 @@ class Table extends React.Component {
 
     constructor(props){
         super(props)
-        this.state = {showCube: true, dices:[]}
-        this.rollDices = this.rollDices.bind(this)
-    }
-
-    rollDices() {
-        let dices = generateDices();
-        this.setState({showCube:false, dices:dices})//Helper.getDices
+        this.state = {showCube: true}
     }
 
 
     renderCube() {
         if(this.state.showCube) {
-            return <Cube onclick={this.rollDices}></Cube>
+            return <Cube onclick={this.props.rollDices}></Cube>
 
         }
 
@@ -28,11 +22,11 @@ class Table extends React.Component {
     renderDices() {
         if(!this.state.showCube) {
             return( <div className="dices">
-                    <Dice value={this.state.dices[0]}/>
-                    <Dice value={this.state.dices[1]}/>
-                    <Dice value={this.state.dices[2]}/>
-                    <Dice value={this.state.dices[3]}/>
-                    <Dice value={this.state.dices[4]}/>
+                    <Dice value={this.props.dices[0]}/>
+                    <Dice value={this.props.dices[1]}/>
+                    <Dice value={this.props.dices[2]}/>
+                    <Dice value={this.props.dices[3]}/>
+                    <Dice value={this.props.dices[4]}/>
                 </div>)
 
 
