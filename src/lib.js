@@ -24,7 +24,7 @@ export const playerHasFinished = (p) => {
 }
 
 export const playerPoints = (p) => {
-    return Object.keys(p).map(k => isInteger(k) ? k*p[k] : p[k] ? gamePoints(k) : 0);
+    return Object.keys(p).map(k => typeof (k) === "number" ? k*p[k] : p[k] ? gamePoints(k) : 0);
 }
 
 export const generateDices = () => {
