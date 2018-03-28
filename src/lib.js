@@ -1,12 +1,12 @@
-const currentTurn = (p1, p2) => {
+export const currentTurn = (p1, p2) => {
     return turnsPlayed(p1) >= turnsPlayed(p2) ? 1 : -1;
 }
 
-const turnsPlayed = (p) => {
+export const turnsPlayed = (p) => {
     return Object.keys(p).filter(k => p[k] !== false).length;
 }
 
-const gamePoints = (letter) => {
+export const gamePoints = (letter) => {
     return {
         'E': 20,
         'F': 30,
@@ -15,23 +15,23 @@ const gamePoints = (letter) => {
     }[letter];
 }
 
-const gameIsOver = (p1, p2) => {
+export const gameIsOver = (p1, p2) => {
     return playerHasFinished(p1) && playerHasFinished(p2);
 }
 
-const playerHasFinished = (p) => {
+export const playerHasFinished = (p) => {
     return Object.keys(p).filter(k => p[k] !== false).length === 0;
 }
 
-const playerPoints = (p) => {
+export const playerPoints = (p) => {
     return Object.keys(p).map(k => isInteger(k) ? k*p[k] : p[k] ? gamePoints(k) : 0);
 }
 
-const generateDices = () => {
+export const generateDices = () => {
     return [generateDice(), generateDice(), generateDice(), generateDice(), generateDice(), generateDice()];
 }
 
-const generateDice = () => {
+export const generateDice = () => {
     // todo
     return Math.floor(Math.random() * 6.99);
 }
@@ -51,11 +51,11 @@ export const possiblePlayerPlays =  (dices) => {
     };
 }
 
-const countNumber = (dices, number) => {
+export const countNumber = (dices, number) => {
     return dices.filter(d => d===number).lenght;
 }
 
-const possibleStraight = (dices) => {
+export const possibleStraight = (dices) => {
     const straights = [
         [1,2,3,4,5],
         [2,3,4,5,6],
@@ -64,12 +64,12 @@ const possibleStraight = (dices) => {
     return straights.find(s => compareStraights(s, dices)) !== -1 ;
 }
 
-const compareStraights = (s1, s2) => {
+export const compareStraights = (s1, s2) => {
     return s1.join('') === s2.join('');
 }
 
 
-const possibleFull = (dices) => {
+export const possibleFull = (dices) => {
     const repetitions = [
         countNumber(dices,1),
         countNumber(dices,2),
@@ -82,11 +82,11 @@ const possibleFull = (dices) => {
     return repetitions.indexOf(3) !== -1 && repetitions.indexOf(2) !== -1;
 }
 
-const possiblePoker = (dices) => {
+export const possiblePoker = (dices) => {
     return dices.filter(d => countNumber(dices, d) === 4).length;
 }
 
 
-const possibleGenerala = (dices) => {
+export const possibleGenerala = (dices) => {
     return dices.filter(d => countNumber(dices, d) === 5).length;
 }
