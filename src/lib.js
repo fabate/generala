@@ -20,20 +20,21 @@ export const gameIsOver = (p1, p2) => {
 }
 
 export const playerHasFinished = (p) => {
-    return Object.keys(p).filter(k => p[k] !== false).length === 0;
+    return Object.keys(p).filter(k => p[k] === false).length === 0;
 }
 
 export const playerPoints = (p) => {
-    return Object.keys(p).map(k => isInteger(k) ? k*p[k] : p[k] ? gamePoints(k) : 0);
+    return Object.keys(p)
+            .map(k => ['1','2','3','4','5','6'].indexOf(k) != -1 ? k*p[k] : p[k] ? gamePoints(k) : 0)
+            .reduce((total, points) => {return total+points}, 0);
 }
 
 export const generateDices = () => {
-    return [generateDice(), generateDice(), generateDice(), generateDice(), generateDice(), generateDice()];
+    return [generateDice(), generateDice(), generateDice(), generateDice(), generateDice()];
 }
 
 export const generateDice = () => {
-    // todo
-    return Math.floor(Math.random() * 6.99);
+    return Math.floor(Math.random() * 5.99 + 1);
 }
 
 export const possiblePlayerPlays =  (dices) => {
