@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Cube from "../cube/Cube.js"
 import Dice from "../dice/Dice.js"
+import {generateDices} from "../../lib.js"
 
 class Table extends React.Component {
 
@@ -11,7 +12,8 @@ class Table extends React.Component {
     }
 
     rollDices() {
-        this.setState({showCube:false, dices:[1, 2, 3, 4, 5]})//Helper.getDices
+        let dices = generateDices();
+        this.setState({showCube:false, dices:dices})//Helper.getDices
     }
 
 

@@ -15,7 +15,7 @@ export default class Turn extends Component {
 
     render(){
         return(
-            <div>{this.props.currentTurn(this.props.p1,this.props.p2)}</div>
+            <div>{'Jugador '+this.props.currentTurn}</div>
         );
     }
 }

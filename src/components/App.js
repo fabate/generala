@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
 import '../App.css';
-import Table from './table/Table.js'
+import Table from './table/Table.js';
 import Turn  from './Turn';
-
+import {currentTurn} from '../lib.js';
 //import Score  from './Score';
 //import Result  from './Result';
-
-
-
-
 
 class App extends Component {
 
@@ -43,6 +39,8 @@ class App extends Component {
             stateModify: function(move){
                 this.state[move.keys(0)] = move[0];
             }
+
+
         };
     }
 
@@ -56,7 +54,7 @@ class App extends Component {
         <p className="App-intro">
             <div>
                 <Table {...this.props} />
-                <Turn {...this.props } />
+                <Turn {...this.props } currentTurn={currentTurn(this.state.p1,this.state.p2)}/>
             </div>
         </p>
       </div>
