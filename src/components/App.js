@@ -3,14 +3,15 @@ import logo from '../logo.svg';
 import '../App.css';
 import Table from './table/Table.js';
 import Turn  from './Turn';
-import {currentTurn} from '../lib.js';
+import {currentTurn,generateDices} from '../lib.js';
+import PlaySelector  from './PlaySelector.js';
 import Score  from './Score';
 //import Result  from './Result';
 
 class App extends Component {
 
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             p1:{
                 "1":false,
@@ -36,15 +37,20 @@ class App extends Component {
                 "P":false,
                 "G":false,
             },
-            stateModify: function(move){
-                this.state[move.keys(0)] = move[0];
-            }
 
+            dices:[],
 
         };
+
+        this.rollDices = this.rollDices.bind(this);
     }
 
-  render() {
+    rollDices() {
+        this.setState({dices:generateDices()});//Helper.getDices
+    }
+
+
+    render() {
     return (
       <div className="App">
         <header className="App-header">
@@ -53,9 +59,10 @@ class App extends Component {
         </header>
         <p className="App-intro">
             <div>
-                <Score p1={this.state.p1} p2={this.state.p2} />
-                <Table {...this.props} />
+                <Table {...this.props} rollDices={this.rollDices}/>
                 <Turn {...this.props } currentTurn={currentTurn(this.state.p1,this.state.p2)}/>
+                {this.state.dices.length === 5 && <PlaySelector {...this.props} dices={this.state.dices} />}
+                <Score p1={this.state.p1} p2={this.state.p2} />
             </div>
         </p>
       </div>
